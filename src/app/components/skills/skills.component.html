@@ -1,0 +1,54 @@
+<section id="skills">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">What I know</div>
+    <h2 class="section-title">Skills heatmap</h2>
+  </div>
+
+  <div class="skill-summary reveal">
+    <div class="sk-stat"><div class="sk-val">{{ stats.total }}</div><div class="sk-lbl">Total skills</div></div>
+    <div class="sk-stat"><div class="sk-val accent">{{ stats.expert }}</div><div class="sk-lbl">Expert level</div></div>
+    <div class="sk-stat"><div class="sk-val">{{ stats.advanced }}</div><div class="sk-lbl">Advanced+</div></div>
+    <div class="sk-stat"><div class="sk-val">{{ stats.cats }}</div><div class="sk-lbl">Categories</div></div>
+  </div>
+
+  <div class="skill-tabs reveal">
+    <button
+      *ngFor="let cat of categories"
+      class="skill-tab"
+      [class.active]="cat === activeTab"
+      (click)="setTab(cat)">
+      {{ cat }}
+    </button>
+  </div>
+
+  <div class="heatmap reveal">
+    <div
+      *ngFor="let skill of filteredSkills"
+      class="hm-cell"
+      [ngClass]="getCellClass(skill.level)"
+      (mouseenter)="showTip($event, skill)"
+      (mouseleave)="hideTip()">
+      <div class="hm-name">
+        {{ skill.name }}
+        <span *ngIf="skill.assessed" class="assessed-badge" title="LinkedIn Skill Assessed">✓</span>
+      </div>
+      <div class="hm-level">{{ levelLabels[skill.level] }}</div>
+    </div>
+  </div>
+
+  <div class="hm-legend reveal">
+    <span class="hm-legend-label">Proficiency:</span>
+    <div *ngFor="let l of legend" class="leg-item">
+      <div class="leg-dot" [style.background]="l.color"></div>
+      <span>{{ l.label }}</span>
+    </div>
+    <div class="assessed-note">
+      <span class="assessed-badge-sm">✓</span> LinkedIn Skill Assessed
+    </div>
+  </div>
+</section>
+
+<div class="tooltip" [class.visible]="tooltip.visible" [style.left.px]="tooltip.x" [style.top.px]="tooltip.y">
+  <div class="tip-name">{{ tooltip.name }}</div>
+  <div class="tip-desc">{{ tooltip.desc }}</div>
+</div>

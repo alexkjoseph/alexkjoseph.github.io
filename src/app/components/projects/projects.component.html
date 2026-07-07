@@ -1,0 +1,16 @@
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">What I've built</div>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+    <div *ngFor="let p of projects" class="project-card reveal">
+      <div class="project-icon">{{ p.icon }}</div>
+      <div class="project-title">{{ p.title }}</div>
+      <div class="project-desc">{{ p.desc }}</div>
+      <div class="project-tags">
+        <span *ngFor="let t of p.tags" class="tag">{{ t }}</span>
+      </div>
+    </div>
+  </div>
+</section>
