@@ -13,10 +13,12 @@ export class AboutComponent implements OnInit {
   timeline: any[] = [];
   chips = [
     'C# — LinkedIn Assessed', 'Git — LinkedIn Assessed',
-    'ASP.NET Web API', 'Microsoft SQL Server',
-    'SoapUI & API Testing', 'COBOL / Legacy Systems',
-    'ETL Pipelines', 'Private Banking Domain',
+    'ASP.NET Web API', 'JERSEY Web API', 'Microsoft SQL Server',
+    'SoapUI & API Testing', 'COBOL Batch & Online Processing',
+    'ETL Pipelines', 'Jenkins & IIS Deployment',
+    'Private Banking Domain', '🇨🇭 Onsite — Switzerland',
     'Angular', 'WinForms', 'MySQL', 'Bash Scripting',
+    'ChatGPT', 'GitHub Copilot', 'Claude AI',
   ];
   certs = [
     'IBM Data Science Professional Certificate',

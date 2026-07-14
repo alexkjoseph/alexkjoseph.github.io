@@ -4,35 +4,77 @@
     <h2 class="section-title">About me</h2>
   </div>
   <div class="about-grid">
-    <div class="about-text reveal">
-      <p>
-        I'm <strong>Alex Joseph</strong>, a Systems Engineer at <strong>Tata Consultancy Services</strong>
-        with over 3 years of experience delivering enterprise solutions in the
-        <strong>private banking domain</strong>.
-      </p>
-      <p>
-        My backend expertise centres on <strong>C#</strong> and <strong>ASP.NET Web API</strong> —
-        both validated through 2 TCS experiences — supported by deep proficiency in
-        <strong>Microsoft SQL Server</strong> and <strong>MySQL</strong> for data management.
-        On the frontend, I build dynamic interfaces with <strong>Angular</strong> and have hands-on
-        desktop application experience with <strong>WinForms</strong>.
-      </p>
-      <p>
-        What sets my TCS work apart is cross-stack depth: I work with <strong>COBOL</strong>
-        legacy systems, build <strong>ETL pipelines</strong> for large-scale data migration,
-        automate API validation with <strong>SoapUI</strong>, and handle scripting with
-        <strong>Bash</strong> — giving me an end-to-end view of enterprise systems few developers have.
-        My <strong>C#</strong> and <strong>Git</strong> skills are LinkedIn Skill Assessed.
-      </p>
-      <p>
-        Outside of engineering, I hold an <strong>IBM Data Science Professional Certificate</strong>
-        alongside Google and IBM certifications — because I believe understanding data and the
-        business behind it makes you a sharper engineer.
-      </p>
-      <div class="chips">
-        <span *ngFor="let c of chips" class="chip" [class.assessed]="c.includes('Assessed')">{{ c }}</span>
+
+    <!-- LEFT: Photo + contact -->
+    <div class="about-left reveal">
+      <div class="photo-wrapper">
+        <img
+          src="assets/images/profile.jpg"
+          alt="Alex Joseph"
+          class="profile-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="photo-placeholder">
+          <span class="placeholder-icon">👤</span>
+          <span class="placeholder-text">Add your photo to<br/><code>src/assets/images/profile.jpg</code></span>
+        </div>
+        <div class="photo-accent-ring"></div>
       </div>
-      <div class="certs">
+      <div class="contact-pill-row">
+        <a href="mailto:aj71563@gmail.com" class="contact-pill">✉️ Email</a>
+        <a href="https://www.linkedin.com/in/alec-arch1563/" target="_blank" class="contact-pill">💼 LinkedIn</a>
+        <a href="https://github.com/alexkjoseph" target="_blank" class="contact-pill">🐙 GitHub</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Bio + timeline -->
+    <div class="about-right">
+      <div class="about-text reveal">
+        <p>
+          I'm <strong>Alex Joseph</strong>, a Systems Engineer at <strong>Tata Consultancy Services</strong>
+          with over 3 years of experience delivering enterprise solutions in the
+          <strong>private banking domain</strong>.
+        </p>
+        <p>
+          My core stack is <strong>C#</strong> and <strong>ASP.NET Web API</strong> on the backend
+          (LinkedIn Skill Assessed), paired with <strong>Angular</strong> on the frontend and
+          <strong>Microsoft SQL Server</strong> for data. I have also worked with
+          <strong>JERSEY Web API</strong> in a full stack banking client portal where clients can
+          view accounts, make payments, trade securities, and advisors can manage client portfolios.
+        </p>
+        <p>
+          I bring rare cross-stack depth — developing <strong>COBOL batch and online transaction
+          processing modules</strong>, building <strong>ETL pipelines</strong>, automating API
+          validation with <strong>SoapUI</strong>, and deploying <strong>.NET applications to IIS
+          via Jenkins CI/CD</strong>. I was selected for an <strong>onsite assignment in
+          Switzerland 🇨🇭</strong> (Oct–Dec 2025) where I directly supported critical banking
+          production incidents under live SLA pressure with international stakeholders.
+        </p>
+        <p>
+          I actively leverage <strong>AI tools</strong> including <strong>Claude AI</strong>,
+          <strong>ChatGPT</strong>, and <strong>GitHub Copilot</strong> for prompt engineering,
+          co-coding, and accelerating development — keeping pace with the evolving landscape of
+          modern software engineering.
+        </p>
+        <div class="chips">
+          <span *ngFor="let c of chips" class="chip"
+            [class.assessed]="c.includes('Assessed')"
+            [class.onsite]="c.includes('Switzerland')">{{ c }}</span>
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="block-label">Experience & Education</div>
+        <ul class="timeline">
+          <li *ngFor="let item of timeline" class="tl-item" [class.onsite]="item.company.includes('Switzerland')">
+            <div class="tl-year">{{ item.year }}</div>
+            <div class="tl-role">{{ item.role }}</div>
+            <div class="tl-company">{{ item.company }}</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="certs reveal">
         <div class="certs-title">Certifications</div>
         <div class="cert-list">
           <div *ngFor="let c of certs" class="cert-item">
@@ -41,19 +83,6 @@
         </div>
       </div>
     </div>
-    <div class="reveal">
-      <ul class="timeline">
-        <li *ngFor="let item of timeline" class="tl-item">
-          <div class="tl-year">{{ item.year }}</div>
-          <div class="tl-role">{{ item.role }}</div>
-          <div class="tl-company">{{ item.company }}</div>
-        </li>
-      </ul>
-      <div class="contact-pill-row">
-        <a href="mailto:aj71563@gmail.com" class="contact-pill">✉️ aj71563&#64;gmail.com</a>
-        <a href="https://www.linkedin.com/in/alec-arch1563/" target="_blank" class="contact-pill">💼 LinkedIn</a>
-        <a href="https://github.com/alexkjoseph" target="_blank" class="contact-pill">🐙 GitHub</a>
-      </div>
-    </div>
+
   </div>
 </section>
